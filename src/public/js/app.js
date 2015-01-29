@@ -38,8 +38,15 @@ scriptsApp.controller('ScriptsController', function($scope, $http){
       
     }).success(function(data, status){
       console.log(status, data);
+      // load the results into a new window
+      // TODO: view the results in a panel or table in the current page
+      var resultsWindow = window.open()
+      resultsWindow.document.write(data);
     }).error(function(data, status){
       console.error(status, data);
+      // load the error into a new window (helps with debugging)
+      var resultsWindow = window.open()
+      resultsWindow.document.write(data);
     });
   };
 
