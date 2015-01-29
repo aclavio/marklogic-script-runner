@@ -30,11 +30,12 @@ scriptsApp.controller('ScriptsController', function($scope, $http){
     $http({
       method: 'POST',
       url: '/scripts/run',
-      data: {
-        'content-db': $config.contentDb,
-        'modules-db': $config.modulesDb,
-        'script': $script
-      }
+      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+      data: 
+        'content-db=' + $config.contentDb +
+        '&modules-db=' + $config.modulesDb +
+        '&script=' + $script.script
+      
     }).success(function(data, status){
       console.log(status, data);
     }).error(function(data, status){

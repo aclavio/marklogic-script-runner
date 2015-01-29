@@ -62,6 +62,7 @@ declare function c:run()
   let $modules-db := req:required("modules-db", "type=xs:string")
   let $script := req:required("script", "type=xs:string")
 
+  let $log := xdmp:log(text{'Running script:', $script, '[', $content-db, '(', $modules-db, ')]'}, "debug")
   let $result := m:run-script($script, $content-db, $modules-db)
 
   return (

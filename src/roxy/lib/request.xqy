@@ -50,6 +50,7 @@ declare variable $req:request as map:map :=
         map:put($map, $name, ($current, $vals))
       else
       map:put($map, $name, $vals),
+    xdmp:log(('request params:', $map), "debug"),
     $map
   )
 ;
