@@ -32,7 +32,7 @@ declare function c:find()
   let $scripts-dir := req:get("scripts-dir", "/", "type=xs:string")
 
   let $scripts := m:find-scripts($modules-db, $scripts-dir)
-  let $scripts-json :=
+  let $scripts-maps :=
     for $s in $scripts
       let $m := map:map()
       let $_ := (
@@ -43,7 +43,15 @@ declare function c:find()
 
   return (
     ch:set-format("text"),
-    xdmp:to-json($scripts-json)
+    if (fn:exists($scripts-maps)) then
+      if (fn:count($scripts-maps) gt 1) then
+        xdmp:to-json($scripts-maps)
+      else
+        let $arr := json:array()
+        let $_ := json:array-push($arr, $scripts-maps)
+        return xdmp:to-json($arr)
+    else
+      xdmp:to-json(json:array())    
   )
 };
 

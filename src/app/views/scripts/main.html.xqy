@@ -30,7 +30,7 @@ declare option xdmp:mapping "false";
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
-        <span class="navbar-brand">Scripts</span>
+        <span class="navbar-brand">Find Scripts</span>
       </div>
       <div class="collapse navbar-collapse">
         <form name="findForm" class="navbar-form navbar-right" ng-submit="findScripts(config)">
