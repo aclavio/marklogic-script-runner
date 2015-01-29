@@ -1,0 +1,28 @@
+body {
+  padding-top: 50px;
+}
+
+.main-content {
+  padding: 20px 15px;
+}
+
+.navbar-inverse .navbar-brand {
+  color: #ccc;
+}
+
+.navbar-form .form-group {
+  margin-left: 10px;
+}
+
+.navbar-form .form-group label {
+  color: #999;
+  margin-right: 5px;
+}
+
+#scriptTable td {
+  vertical-align: middle;
+}
+
+#scriptTable td.run-col {
+  text-align: center;
+}
