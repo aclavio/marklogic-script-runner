@@ -1,0 +1,12 @@
+<scripts xmlns="http://marklogic.com/script-runner/scripts">
+  <script name="Example" category="Samples">
+    <description>This is a sample script description.</description>
+    <path>/test/sample-script.xqy</path>
+    <content-db>content-db-name</content-db>
+    <modules-db>modules-db-name</modules-db>
+    <parameters>
+      <param name="name" namespace="http://test" type="xs:string" default="John Doe" />
+      <param name="age" namespace="http://test" type="xs:int" default="20" />
+    </parameters>
+  </script>
+</scripts>
