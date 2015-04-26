@@ -19,4 +19,31 @@ define(['ember', 'app', 'jquery'], function(Ember, App, $) {
     }
   });
 
+  App.ScriptsModel = Ember.Object.extend({
+    database: null,
+    scripts: [],
+
+    placeholder: [{
+      script: '[[ script name ]]',
+      description: '[[ description ]]'
+    }],
+
+    init: function() {
+      this.set('scripts', this.placeholder);
+    },
+
+    setScripts: function(db, vals) {
+      this.set('database', db);
+      this.set('scripts', vals || this.placeholder);
+    },
+
+    newScript: function() {
+
+    },
+
+    runScript: function() {
+
+    }
+  });
+
 });

@@ -8,24 +8,17 @@ define(['ember', 'app', 'models'], function(Ember, App) {
   });
 
   App.IndexRoute = Ember.Route.extend({
+    model: function() {
+      return App.ScriptsModel.create();
+    },
     setupController: function() {
 
     }
   });
 
   App.ScriptsRoute = Ember.Route.extend({
-    model: function(parms) {
-      console.log("loading scripts for:", params.database);
-      return [
-          {
-            name: 'test1',
-            description: 'foo bar'
-          },
-          {
-            name: 'test2',
-            description: 'lorum ipsum'
-          }
-        ]
+    model: function() { 
+      return [];
     },
 
     serialize: function(model) {

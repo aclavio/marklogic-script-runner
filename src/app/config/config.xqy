@@ -69,6 +69,32 @@ declare variable $c:ROXY-ROUTES :=
       <uri-param name="format">json</uri-param>
     </request>
 
+    <request uri="^/api/database/([%25\-\w\._!'\*\(\)]+)/script[/]?$" endpoint="/roxy/query-router.xqy">
+      <http method="GET"/>
+      <uri-param name="controller">scripts</uri-param>
+      <uri-param name="func">find-scripts</uri-param>
+      <uri-param name="format">json</uri-param>
+      <uri-param name="db-name">$1</uri-param>
+    </request>
+
+    <request uri="^/api/database/([%25\-\w\._!'\*\(\)]+)/script/([%25\-\w\._!'\*\(\)]+)[/]?$" endpoint="/roxy/query-router.xqy">
+      <http method="GET"/>
+      <uri-param name="controller">scripts</uri-param>
+      <uri-param name="func">find-script</uri-param>
+      <uri-param name="format">json</uri-param>
+      <uri-param name="db-name">$1</uri-param>
+      <uri-param name="script-name">$2</uri-param>
+    </request>
+
+    <request uri="^/api/database/([%25\-\w\._!'\*\(\)]+)/script/([%25\-\w\._!'\*\(\)]+)[/]?$" endpoint="/roxy/query-router.xqy">
+      <http method="POST"/>
+      <uri-param name="controller">scripts</uri-param>
+      <uri-param name="func">run-script</uri-param>
+      <uri-param name="format">html</uri-param>
+      <uri-param name="db-name">$1</uri-param>
+      <uri-param name="script-name">$2</uri-param>
+    </request>
+
     <!--
     samples
     <request uri="^/api/workspace/(\d+)/user/(\d+)[/]?$" endpoint="/roxy/update-router.xqy">

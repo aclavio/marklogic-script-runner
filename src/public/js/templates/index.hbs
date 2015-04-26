@@ -1,14 +1,16 @@
 <div>
   <table id="scriptTable" class="table table-bordered table-hover">
     <tr>
-      <th>Script</th>
+      <th>Name</th>
       <th>Description</th>
       <th></th>
     </tr>
-    <tr>
-      <td>[[ script.script ]]</td>
-      <td>[[ script.description ]]</td>
-      <td class="run-col"><button type="submit" class="btn btn-success btn-sm">Run</button></td>
-    </tr>      
+    {{#each script in scripts}}
+      <tr>
+        <td>{{script.script}}</td>
+        <td>{{script.description}}</td>
+        <td class="run-col"><button type="submit" class="btn btn-success btn-sm">Run</button></td>
+      </tr>
+    {{/each}}      
   </table>
 </div>
