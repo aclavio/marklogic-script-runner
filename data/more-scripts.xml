@@ -1,0 +1,20 @@
+<scripts xmlns="http://marklogic.com/script-runner/scripts">
+  <script name="Connection Service" category="Samples">
+    <description>Lets you know if you're connected</description>
+    <path>/support/scripts/connected.xqy</path>
+    <content-db>sof-sdl-content</content-db>
+    <modules-db>sof-sdl-modules</modules-db>
+  </script>
+  <script name="Data Source Status" category="Samples">
+    <description>Status of Data Sources</description>
+    <path>/support/scripts/data-sources-status.xqy</path>
+    <content-db>sof-sdl-content</content-db>
+    <modules-db>sof-sdl-modules</modules-db>
+  </script>
+  <script name="Headers Exposed" category="Samples">
+    <description>Examine HTTP headers</description>
+    <path>/support/scripts/headers-exposed.xqy</path>
+    <content-db>sof-sdl-content</content-db>
+    <modules-db>sof-sdl-modules</modules-db>
+  </script>
+</scripts>
