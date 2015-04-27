@@ -39,7 +39,7 @@ declare function m:find-scripts($db-name) as json:array
 {
   xdmp:invoke-function(function(){
     let $arr := json:array()
-    let $puts :=
+    let $scripts :=
       for $script in /scripts:scripts/scripts:script
         let $obj := json:object()
         let $_ := (
@@ -50,7 +50,12 @@ declare function m:find-scripts($db-name) as json:array
           map:put($obj, "content-db", fn:string($script/scripts:content-db/text())),
           map:put($obj, "modules-db", fn:string($script/scripts:modules-db/text()))
         )
-        return json:array-push($arr, $obj)
+        order by $script/@name
+        return $obj
+    let $_ :=
+      (: add them in sorted order :)
+      for $script in $scripts
+      return json:array-push($arr, $script)
     return $arr
   }, 
   <options xmlns="xdmp:eval">

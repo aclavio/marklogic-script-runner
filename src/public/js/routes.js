@@ -10,9 +10,6 @@ define(['ember', 'app', 'models'], function(Ember, App) {
   App.IndexRoute = Ember.Route.extend({
     model: function() {
       return App.ScriptsModel.create();
-    },
-    setupController: function() {
-
     }
   });
 
