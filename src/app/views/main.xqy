@@ -33,7 +33,7 @@ xdmp:set-response-encoding("UTF-8"),
     </div>
 
     <!-- Load our JS here -->
-    <script src="/js/lib/jquery-1.7.1.min.js"></script>
+    <script src="/js/lib/jquery-1.11.2.min.js"></script>
     <script src="/js/lib/handlebars-v1.3.0.js"></script>
     <script src="/js/lib/ember-1.8.1.js"></script>
     <script src="/js/lib/bootstrap.min.js"></script>

@@ -1,5 +1,5 @@
-// definition of application routes
-define(['ember'], function(Ember) {
+// setup the ember application
+define(['ember', 'templates'], function(Ember) {
   var EmberApp = Ember.Application.extend({rootElement: '#content'});
 
   return EmberApp.create({

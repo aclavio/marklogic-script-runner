@@ -1,9 +1,11 @@
 define(['ember',
   'text!templates/application.hbs',
-  'text!templates/index.hbs'
+  'text!templates/index.hbs',
+  'text!templates/script-row-table.hbs'
   ], function(Ember,
     applicationTemplate,
-    indexTemplate
+    indexTemplate,
+    scriptRowTableTemptlate
   ){
 
   /*
@@ -29,7 +31,7 @@ define(['ember',
   }
   */
 
-  Ember.TEMPLATES['application'] = Ember.Handlebars.compile(applicationTemplate);
-  Ember.TEMPLATES['index'] = Ember.Handlebars.compile(indexTemplate);
-
+  Ember.TEMPLATES['application']      = Ember.Handlebars.compile(applicationTemplate);
+  Ember.TEMPLATES['index']            = Ember.Handlebars.compile(indexTemplate);
+  Ember.TEMPLATES['script-row-table'] = Ember.Handlebars.compile(scriptRowTableTemptlate);
 });

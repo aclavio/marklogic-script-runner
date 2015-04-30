@@ -47,8 +47,8 @@ declare function m:find-scripts($db-name) as json:array
           map:put($obj, "category", fn:string($script/@category)),
           map:put($obj, "path", fn:string($script/scripts:path/text())),
           map:put($obj, "description", fn:string($script/scripts:description/text())),
-          map:put($obj, "content-db", fn:string($script/scripts:content-db/text())),
-          map:put($obj, "modules-db", fn:string($script/scripts:modules-db/text()))
+          map:put($obj, "contentDb", fn:string($script/scripts:content-db/text())),
+          map:put($obj, "modulesDb", fn:string($script/scripts:modules-db/text()))
         )
         order by $script/@name
         return $obj
