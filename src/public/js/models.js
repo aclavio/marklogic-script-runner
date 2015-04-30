@@ -32,21 +32,11 @@ define(['ember', 'app', 'jquery'], function(Ember, App, $) {
   App.ScriptsModel = Ember.Object.extend({
     database: null,
     scripts: Ember.A(),
-
-    init: function() {
-      //this.get('scripts').pushObject(this.getPlaceholder());
-    },
-
-    getPlaceholder: function() {
-      return App.ScriptModel.create({
-        name: '[[ script name ]]',
-        description: '[[ description ]]',
-        path: '[[ path ]]'
-      })
-    },
+    loading: false,
 
     findScripts: function(db) {
       var that = this;
+      this.set('loading', true);
       this.set('database', db);
       $.get('/api/database/' + db + '/script').done(function(data){
         console.log(data);
@@ -59,6 +49,8 @@ define(['ember', 'app', 'jquery'], function(Ember, App, $) {
       }).fail(function(err){
         console.error(err);
         that.get('scripts').clear();
+      }).always(function(){
+        that.set('loading', false);
       });
     },
 
@@ -73,8 +65,22 @@ define(['ember', 'app', 'jquery'], function(Ember, App, $) {
 
     },
 
-    runScript: function() {
-
+    runScript: function(script) {
+      var that = this;
+      this.set('loading', true);
+      var url = '/api/database/' + this.get('database') + '/script/' + encodeURIComponent(script.name);
+      $.post(url)
+        .done(function(data){
+          var win = window.open('', '_blank');
+          win.document.write(data);
+        }).fail(function(err){
+          console.error('error running script "%s"', script.name, err);
+          var win = window.open('', '_blank');
+          //win.document.write('<pre>' + err.responseText + '</pre>');
+          $(win.document.body).text(err.responseText);
+        }).always(function(){
+          that.set('loading', false);
+        });
     }
   });
 

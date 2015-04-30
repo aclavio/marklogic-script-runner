@@ -47,9 +47,13 @@ define(['ember', 'app', 'jquery', 'models'], function(Ember, App, $) {
       model.findScripts(db);
     }.observes('app.currentDb'),
 
+    toolTipText: function(script) {
+      return 'Execute ' + script.path;
+    },
+
     actions: {
-      executeScript: function() {
-        console.log("not yet implemented!");
+      executeScript: function(script) {
+        this.get('model').runScript(script);
       }
     }
   });
