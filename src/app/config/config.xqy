@@ -53,15 +53,7 @@ declare variable $c:ROXY-OPTIONS :=
 declare variable $c:ROXY-ROUTES :=
   <routes xmlns="http://marklogic.com/appservices/rest">
     
-    <!--
-    <request uri="^/scripts/main(/)?$" endpoint="/roxy/query-router.xqy">
-      <uri-param name="controller">scripts</uri-param>
-      <uri-param name="func">main</uri-param>
-      <uri-param name="format">html</uri-param>
-      <http method="GET"/>
-    </request>
-    -->
-
+    <!-- API endpoints -->
     <request uri="^/api/database(/)?$" endpoint="/roxy/query-router.xqy">
       <http method="GET"/>
       <uri-param name="controller">scripts</uri-param>
@@ -94,24 +86,6 @@ declare variable $c:ROXY-ROUTES :=
       <uri-param name="db-name">$1</uri-param>
       <uri-param name="script-name">$2</uri-param>
     </request>
-
-    <!--
-    samples
-    <request uri="^/api/workspace/(\d+)/user/(\d+)[/]?$" endpoint="/roxy/update-router.xqy">
-      <http method="POST" />
-      <uri-param name="func">transfer-workspace-ownership-to-user</uri-param>
-      <uri-param name="controller">workspace</uri-param>
-      <uri-param name="format">json</uri-param>
-      <uri-param name="workspace-id">$1</uri-param>
-      <uri-param name="user-id">$2</uri-param>
-    </request>
-    <request uri="^/api/workspace[/]?$" endpoint="/roxy/update-router.xqy">
-      <http method="GET" />
-      <uri-param name="func">get-all-workspaces</uri-param>
-      <uri-param name="controller">workspace</uri-param>
-      <uri-param name="format">json</uri-param>
-    </request>
-    -->
     
     <!-- UI Code passthru -->
     <request uri="^/ui(/|.*)?" endpoint="/app/views/main.xqy" />
