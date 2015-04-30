@@ -51,6 +51,7 @@ declare variable $title as xs:string? := (vh:get('title'), "MarkLogic Script Run
     </div>
 
     <!-- Load our JS here -->
+    <script src="/js/lib/require.js"></script>
     <script src="/js/lib/jquery-1.7.1.min.js"></script>
     <script src="/js/lib/angular.min.js"></script>
     <script src="/js/lib/bootstrap.min.js"></script>

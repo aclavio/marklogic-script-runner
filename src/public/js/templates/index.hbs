@@ -1,0 +1,31 @@
+<div>
+  <table id="scriptTable" class="table table-bordered table-hover">
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Path</th>
+      <th></th>
+    </tr>
+    {{#if loading}}
+      <tr>
+        <td class="col-wide" colspan="4">loading...</td>
+      </tr>
+    {{else}}
+      {{#each script in scripts}}
+        <tr>
+          <td>{{script.name}}</td>
+          <td>{{script.description}}</td>
+          <td>{{script.path}}</td>
+          <td class="run-col">
+            <button type="submit" class="btn btn-success btn-sm" data-toggle="tooltip" title="run script" {{action 'executeScript' script}}>Run</button>
+          </td>
+        </tr>
+      {{/each}}
+      {{#unless scripts}}
+        <tr>
+          <td class="col-wide" colspan="4">No scripts found in selected database.</td>
+        </tr>
+      {{/unless}}
+    {{/if}}
+  </table>
+</div>

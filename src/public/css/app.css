@@ -26,3 +26,7 @@ body {
 #scriptTable td.run-col {
   text-align: center;
 }
+
+#scriptTable td.col-wide {
+  text-align: center;
+}
